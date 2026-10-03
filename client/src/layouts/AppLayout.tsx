@@ -15,8 +15,8 @@ export default function AppLayout() {
           <NavLink to="/" end>
             Dashboard
           </NavLink>
-          <NavLink to="/prospects">Prospects</NavLink>
-          {/* Step 5: Cadences link inga varum */}
+           <NavLink to="/prospects">Prospects</NavLink>
+          <NavLink to="/cadences">Cadences</NavLink>
         </nav>
         <div className="userbox">
           <span>

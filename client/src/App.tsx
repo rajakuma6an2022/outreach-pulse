@@ -10,6 +10,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import PublicOnlyRoute from "./routes/PublicOnlyRoute";
 import { baseApi } from "./services/api";
 import { useGetMeQuery } from "./services/authApi";
+import CadencesPage from "./features/cadence/CadencePage";
 
 export default function App() {
   const dispatch = useAppDispatch();
@@ -35,6 +36,7 @@ export default function App() {
         <Route element={<AppLayout />}>
           <Route index element={<DashboardPage />} />
           <Route path="prospects" element={<ProspectsPage />} />
+            <Route path="cadences" element={<CadencesPage />} />
         </Route>
       </Route>
 

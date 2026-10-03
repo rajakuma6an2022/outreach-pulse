@@ -63,3 +63,24 @@ export interface CreateProspectBody {
   company?: string;
   title?: string;
 }
+
+export interface CadenceStep {
+  order: number;
+  subject: string;
+  body: string;
+  delayMinutes: number;
+}
+
+export interface Cadence {
+  id: string;
+  name: string;
+  steps: CadenceStep[];
+  createdBy: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateCadenceBody {
+  name: string;
+  steps: CadenceStep[];
+}
