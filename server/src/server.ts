@@ -2,6 +2,7 @@ import { createApp } from "./app";
 import { env } from "./config/env";
 import { connectDB, disconnectDB } from "./config/db";
 import { redis } from "./config/redis";
+import { emailQueue } from "./queues/email.queue";
 
 async function bootstrap() {
   await connectDB();
@@ -14,6 +15,7 @@ async function bootstrap() {
   const shutdown = async (signal: string) => {
     console.log(`\n${signal} received. Shutting down...`);
     server.close(async () => {
+      await emailQueue.close();
       await disconnectDB();
       redis.disconnect();
       process.exit(0);

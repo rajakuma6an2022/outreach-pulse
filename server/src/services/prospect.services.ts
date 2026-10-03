@@ -4,6 +4,7 @@ import { AuthUser } from "../types/express";
 import { AppError } from "../utils/error";
 import { escapeRegex } from "../utils/regex";
 import { CreateProspectInput, ListProspectsQuery } from "../validators/prospect.validator";
+import { deleteEnrollmentsForProspect } from "./enrollment.services";
 
 function toDTO(p: ProspectDoc) {
   return {
@@ -125,10 +126,15 @@ export async function getProspect(user: AuthUser, id: string) {
   return toDTO(prospect);
 }
 
+
+
 export async function deleteProspect(user: AuthUser, id: string) {
   const deleted = await Prospect.findOneAndDelete({
     _id: id,
     workspaceId: user.workspaceId,
   });
   if (!deleted) throw AppError.notFound("Prospect not found", "PROSPECT_NOT_FOUND");
+
+  // Indha prospect-oda enrollments and pending email jobs-um clean pannidu
+  await deleteEnrollmentsForProspect(user.workspaceId, id);
 }
