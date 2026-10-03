@@ -84,3 +84,20 @@ export interface CreateCadenceBody {
   name: string;
   steps: CadenceStep[];
 }
+
+export type EnrollmentStatus = "ACTIVE" | "COMPLETED" | "FAILED";
+
+export interface EnrollmentItem {
+  id: string;
+  prospect: { id: string; name: string; email: string } | null;
+  cadence: { id: string; name: string; totalSteps: number } | null;
+  currentStep: number; // sent steps count
+  status: EnrollmentStatus;
+  nextRunAt: string | null;
+  createdAt: string;
+}
+
+export interface CreateEnrollmentBody {
+  prospectId: string;
+  cadenceId: string;
+}

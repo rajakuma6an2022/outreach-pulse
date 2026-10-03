@@ -31,9 +31,12 @@ export const prospectApi = baseApi.injectEndpoints({
       invalidatesTags: [{ type: "Prospect", id: "LIST" }],
     }),
 
-    deleteProspect: build.mutation<unknown, string>({
+      deleteProspect: build.mutation<unknown, string>({
       query: (id) => ({ url: `/prospects/${id}`, method: "DELETE" }),
-      invalidatesTags: [{ type: "Prospect", id: "LIST" }],
+      invalidatesTags: [
+        { type: "Prospect", id: "LIST" },
+        { type: "Enrollment", id: "LIST" },
+      ],
     }),
   }),
 });

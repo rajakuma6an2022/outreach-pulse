@@ -80,3 +80,16 @@ textarea:focus { outline: 2px solid #c7d2fe; border-color: var(--primary); }
 .cadence-steps { margin: 0; padding-left: 20px; font-size: 14px; }
 .cadence-steps li { padding: 3px 0; }
 .cadence-steps li .muted { color: var(--muted); margin-left: 10px; font-size: 12px; }
+
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+
+.alert.success { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
+
+.enroll-box { margin-top: 12px; padding: 12px; background: #fafafa; border: 1px solid var(--border); border-radius: 10px; }
+.enroll-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.enroll-row select { flex: 1; min-width: 220px; }
+
+.badge.ACTIVE { background: #dbeafe; color: #1e40af; }
+.badge.COMPLETED { background: #d1fae5; color: #065f46; }
+.badge.FAILED { background: #fee2e2; color: #991b1b; }
