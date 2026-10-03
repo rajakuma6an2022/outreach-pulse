@@ -9,4 +9,4 @@ coverage/
 *.log
 
 .vscode/
-.idea/
+.idea/cookies*.txt
